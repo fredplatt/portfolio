@@ -42,6 +42,14 @@ p {
     text-align: left;
 }
 
-.preview {
+.portfolio {
+    text-align: center;
+}
 
+.preview {
+    border: 1px solid black;
+    margin: 1%;
+    padding: 2%;
+    display: inline-block;
+    width: 30%;
 }
