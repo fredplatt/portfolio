@@ -1,0 +1,47 @@
+*{box-sizing: border-box}
+
+header {
+    padding: 10%;
+}
+
+.title {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+main {
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    overflow: auto;
+}
+
+main div {
+    border: 1px solid black;
+}
+p {
+    width: 66%;
+    overflow: auto;
+    font-size: 1rem;
+}
+
+.line1 {
+    float: left;
+    text-align: left;
+}
+
+.line2 {
+    text-align: right;
+    float: right;
+}
+
+.line3 {
+    float: left;
+    text-align: left;
+}
+
+.preview {
+
+}
