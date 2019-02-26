@@ -15,21 +15,21 @@ main {
     text-align: center;
     padding-left: 10%;
     padding-right: 10%;
-    margin-bottom: 5%;
+    padding-bottom: 5%;
     overflow: auto;
 }
 
 main img {
-    height: 180px;
-    width: 130px;
+    height: 250px;
+    width: 180px;
 }
 
 p {
     width: 66%;
     overflow: auto;
     font-size: 1rem;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .line1 {
@@ -49,8 +49,8 @@ p {
 
 .portfolio {
     text-align: center;
-    margin-top: 150px;
-    margin-bottom: 100px
+    padding-top: 150px;
+    padding-bottom: 100px
 }
 
 .portfolio h3 {
