@@ -84,14 +84,8 @@ main div {
 main img {
     width: 20%;
     border-radius: 25px;
-    /*float: right;*/
     margin: 1%;
-    text-align: right;
 }
-
-/*.img2 {*/
-    /*float: left;*/
-/*}*/
 
 p {
     width: 70%;
@@ -99,21 +93,6 @@ p {
     font-size: 1rem;
     padding-top: 100px;
     padding-bottom: 100px;
-}
-
-.line1 {
-    /*float: left;*/
-    text-align: left;
-}
-
-.line2 {
-    text-align: left;
-    float: right;
-}
-
-.line3 {
-    /*float: left;*/
-    text-align: left;
 }
 
 .portfolio {
