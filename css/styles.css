@@ -10,7 +10,7 @@ body {
 }
 
 header {
-    padding: 15%;
+    padding: 10%;
 }
 
 .title {
@@ -26,17 +26,75 @@ main {
     padding-right: 10%;
     padding-bottom: 5%;
     overflow: auto;
+    display: inline-block;
+}
+
+.parent {
+    position: relative;
+}
+
+.childText {
+    float: left;
+    width: 60%;
+    text-align: left;
+}
+
+.childImage {
+    width: 25%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0px;
+}
+
+.parent2 {
+    position: relative;
+}
+
+.childText2 {
+    float: right;
+    width: 60%;
+    text-align: left;
+}
+
+.childImage2 {
+    width: 25%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0px;
+}
+
+.text1 {
+    width: 70%;
+    height: 400px;
+}
+
+.image1 {
+    width: 200px;
+    height: 200px;
+    background-image: url("../img/fred2.jpg");
+    background-size: cover;
+}
+
+main div {
+    display: inline-block;
 }
 
 main img {
-    height: 280px;
-    width: 200px;
+    width: 20%;
     border-radius: 25px;
-
+    /*float: right;*/
+    margin: 1%;
+    text-align: right;
 }
 
+/*.img2 {*/
+    /*float: left;*/
+/*}*/
+
 p {
-    width: 66%;
+    width: 70%;
     overflow: auto;
     font-size: 1rem;
     padding-top: 100px;
@@ -44,17 +102,17 @@ p {
 }
 
 .line1 {
-    float: left;
+    /*float: left;*/
     text-align: left;
 }
 
 .line2 {
-    text-align: right;
+    text-align: left;
     float: right;
 }
 
 .line3 {
-    float: left;
+    /*float: left;*/
     text-align: left;
 }
 
@@ -79,13 +137,13 @@ p {
 
 footer {
     position: fixed;
-    border: 1px solid #EFCC73;
+    border-top: 3px solid #5B1901;
     height: 50px;
     width: 100%;
     bottom: 0;
     left: 0;
     text-align: center;
-    background-color: #EFEFD0;
+    background-color: #B37101;
 }
 
 footer h4 {
@@ -93,7 +151,7 @@ footer h4 {
 }
 button {
     height: 40px;
-    width: 60px;
+    width: 40px;
     margin-top: 5px;
     margin-left: 2%;
     margin-right: 2%;
