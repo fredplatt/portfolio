@@ -1,5 +1,14 @@
 *{box-sizing: border-box}
 
+body {
+    font-family: 'Courier';
+    color: #ffffff;
+    background-image: url('../img/stack5.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 header {
     padding: 15%;
 }
