@@ -52,4 +52,47 @@ p {
     padding: 2%;
     display: inline-block;
     width: 30%;
+    height: 200px;
+}
+
+footer {
+    position: fixed;
+    border: 1px solid black;
+    height: 50px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+}
+
+footer h4 {
+    display: inline;
+}
+button {
+    height: 40px;
+    width: 60px;
+    margin-top: 5px;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+@media screen and (max-width: 950px) {
+    .preview {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .preview {
+        width: 80%;
+    }
+    footer h4 {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    main img {
+        display: none;
+    }
 }
