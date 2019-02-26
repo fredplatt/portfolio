@@ -1,7 +1,7 @@
 *{box-sizing: border-box}
 
 header {
-    padding: 10%;
+    padding: 15%;
 }
 
 .title {
@@ -15,16 +15,21 @@ main {
     text-align: center;
     padding-left: 10%;
     padding-right: 10%;
+    margin-bottom: 5%;
     overflow: auto;
 }
 
-main div {
-    border: 1px solid black;
+main img {
+    height: 180px;
+    width: 130px;
 }
+
 p {
     width: 66%;
     overflow: auto;
     font-size: 1rem;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .line1 {
@@ -44,6 +49,11 @@ p {
 
 .portfolio {
     text-align: center;
+    margin-top: 200px;
+}
+
+.portfolio h3 {
+    margin-bottom: 50px;
 }
 
 .preview {
@@ -91,8 +101,20 @@ button {
     }
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 600px) {
     main img {
         display: none;
+    }
+    .line1 {
+        text-align: justify;
+        width: auto;
+    }
+    .line2 {
+        text-align: justify;
+        width: auto;
+    }
+    .line3 {
+        text-align: justify;
+        width: auto;
     }
 }
