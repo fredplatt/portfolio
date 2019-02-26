@@ -1,8 +1,8 @@
 *{box-sizing: border-box}
 
 body {
-    font-family: 'Courier';
-    color: #ffffff;
+    font-family: 'Courier', monospace;
+    color: #EFEFD0;
     background-image: url('../img/stack5.jpg');
     background-position: center;
     background-repeat: no-repeat;
@@ -29,8 +29,10 @@ main {
 }
 
 main img {
-    height: 250px;
-    width: 180px;
+    height: 280px;
+    width: 200px;
+    border-radius: 25px;
+
 }
 
 p {
@@ -77,13 +79,13 @@ p {
 
 footer {
     position: fixed;
-    border: 1px solid black;
+    border: 1px solid #EFCC73;
     height: 50px;
     width: 100%;
     bottom: 0;
     left: 0;
     text-align: center;
-    background-color: #ffffff;
+    background-color: #EFEFD0;
 }
 
 footer h4 {
