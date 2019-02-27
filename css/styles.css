@@ -75,18 +75,6 @@ main p {
     left: 0;
 }
 
-.text1 {
-    width: 70%;
-    height: 400px;
-}
-
-.image1 {
-    width: 200px;
-    height: 200px;
-    background-image: url("../img/fred2.jpg");
-    background-size: cover;
-}
-
 main div {
     display: inline-block;
 }
@@ -98,8 +86,6 @@ main img {
 }
 
 p {
-    width: 70%;
-    overflow: auto;
     font-size: 1rem;
     padding-top: 100px;
     padding-bottom: 100px;
@@ -212,16 +198,7 @@ a img:hover {
     main img {
         display: none;
     }
-    .line1 {
-        text-align: justify;
-        width: auto;
-    }
-    .line2 {
-        text-align: justify;
-        width: auto;
-    }
-    .line3 {
-        text-align: justify;
-        width: auto;
+    .childText, .childText2 {
+        width: 100%;
     }
 }
