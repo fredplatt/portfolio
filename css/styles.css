@@ -5,7 +5,6 @@ body {
     color: #EFEFD0;
     background-image: url('../img/stack5.jpg');
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
     text-shadow: -1px 1px 1px #5B1901;
 }
@@ -24,32 +23,26 @@ header {
 
 main {
     text-align: center;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-bottom: 5%;
-    display: inline-block;
+    padding: 0 10% 5% 10%;
+    letter-spacing: 1px;
+
 }
 
 main h2 {
-    margin-bottom: -30px;
+    margin-bottom: -20px;
     font-style: italic;
 }
 
-main p {
-    letter-spacing: 1px;
-}
-
-.parent {
+.textLeft {
     position: relative;
 }
 
-.childText {
-    float: left;
+.textLeft>p {
     width: 60%;
     text-align: left;
 }
 
-.childImage {
+.textLeft>img {
     width: 25%;
     position: absolute;
     top: 50%;
@@ -57,17 +50,17 @@ main p {
     right: 0;
 }
 
-.parent2 {
+.textRight {
     position: relative;
 }
 
-.childText2 {
+.textRight>p {
     float: right;
     width: 60%;
     text-align: left;
 }
 
-.childImage2 {
+.textRight>img {
     width: 25%;
     position: absolute;
     top: 50%;
@@ -77,6 +70,7 @@ main p {
 
 main div {
     display: inline-block;
+    margin: 0 10% 0 10%;
 }
 
 main img {
@@ -91,14 +85,13 @@ p {
     padding-bottom: 100px;
 }
 
-.portfolio {
+section {
     text-align: center;
-    padding-top: 50px;
-    padding-bottom: 150px;
+    padding: 50px 0 150px 0;
     margin-top: 50px;
 }
 
-.portfolio h2 {
+section h2 {
     margin-bottom: 50px;
     font-style: italic;
 }
@@ -128,17 +121,15 @@ p {
 
 footer {
     position: fixed;
-    display: inline-block;
     border-top: 3px solid #5B1901;
     height: 60px;
     width: 100%;
     bottom: 0;
-    left: 0;
     text-align: center;
     background-color: #B37101;
 }
 
-footer h4 {
+h4 {
     float: left;
     margin-left: 30%;
     margin-right: -10%;
@@ -148,28 +139,18 @@ footer h4 {
 footer div {
     margin-top: 8px;
 }
+
 a {
-    height: 40px;
-    width: 40px;
     margin-left: 2%;
     margin-right: 2%;
-    background-color: transparent;
-    border: none;
-    color: transparent;
 }
 
 a img {
     height: 40px;
-    width: 40px;
     margin-top: 8px;
 }
 
-.email img:hover {
-    box-shadow: -3px 3px 1px #5B1901;
-    background-color: transparent;
-}
-
-.phone img:hover {
+.contact img:hover {
     box-shadow: -3px 3px 1px #5B1901;
     background-color: transparent;
 }
@@ -198,7 +179,8 @@ a img:hover {
     main img {
         display: none;
     }
-    .childText, .childText2 {
+    .textLeft>p, .textRight>p {
         width: 100%;
+        text-align: justify;
     }
 }
