@@ -32,6 +32,7 @@ main {
 
 main h2 {
     margin-bottom: -30px;
+    font-style: italic;
 }
 
 main p {
@@ -53,7 +54,7 @@ main p {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    right: 0px;
+    right: 0;
 }
 
 .parent2 {
@@ -71,7 +72,7 @@ main p {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 0px;
+    left: 0;
 }
 
 .text1 {
@@ -107,11 +108,13 @@ p {
 .portfolio {
     text-align: center;
     padding-top: 50px;
-    padding-bottom: 150px
+    padding-bottom: 150px;
+    margin-top: 50px;
 }
 
 .portfolio h2 {
     margin-bottom: 50px;
+    font-style: italic;
 }
 
 .preview, .pilot {
@@ -127,12 +130,14 @@ p {
     background-image: url("../img/pilot.png");
     background-size: cover;
     color: transparent;
+    text-shadow: 0 0 0;
     opacity: 0.6;
 }
 
 .pilot:hover {
     cursor: pointer;
     opacity: 1;
+    border-color: #5B1901;
 }
 
 footer {
@@ -170,6 +175,22 @@ a {
 a img {
     height: 40px;
     width: 40px;
+    margin-top: 8px;
+}
+
+.email img:hover {
+    box-shadow: -3px 3px 1px #5B1901;
+    background-color: transparent;
+}
+
+.phone img:hover {
+    box-shadow: -3px 3px 1px #5B1901;
+    background-color: transparent;
+}
+
+a img:hover {
+    background-color: #5B1901;
+    border-radius: 5px;
 }
 
 @media screen and (max-width: 950px) {
