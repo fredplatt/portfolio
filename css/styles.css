@@ -7,10 +7,12 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    text-shadow: -1px 1px 1px #5B1901;
 }
 
 header {
     padding: 10%;
+    font-size: 1.3rem;
 }
 
 .title {
@@ -25,8 +27,15 @@ main {
     padding-left: 10%;
     padding-right: 10%;
     padding-bottom: 5%;
-    overflow: auto;
     display: inline-block;
+}
+
+main h2 {
+    margin-bottom: -30px;
+}
+
+main p {
+    letter-spacing: 1px;
 }
 
 .parent {
@@ -98,10 +107,10 @@ p {
 .portfolio {
     text-align: center;
     padding-top: 50px;
-    padding-bottom: 100px
+    padding-bottom: 150px
 }
 
-.portfolio h3 {
+.portfolio h2 {
     margin-bottom: 50px;
 }
 
@@ -142,12 +151,15 @@ footer h4 {
     float: left;
     margin-left: 30%;
     margin-right: -10%;
+    font-style: italic;
 }
 
+footer div {
+    margin-top: 8px;
+}
 a {
     height: 40px;
     width: 40px;
-    margin-top: 7px;
     margin-left: 2%;
     margin-right: 2%;
     background-color: transparent;
@@ -155,24 +167,9 @@ a {
     color: transparent;
 }
 
-.email {
-    background-image: url("../img/email.png");
-    background-size: cover;
-}
-
-.phone {
-    background-image: url("../img/phone.png");
-    background-size: cover;
-}
-
-.github {
-    background-image: url("../img/github.png");
-    background-size: cover;
-}
-
-.twitter {
-    background-image: url("../img/twitter.png");
-    background-size: cover;
+a img {
+    height: 40px;
+    width: 40px;
 }
 
 @media screen and (max-width: 950px) {
