@@ -105,8 +105,8 @@ p {
     margin-bottom: 50px;
 }
 
-.preview {
-    border: 1px solid black;
+.preview, .pilot {
+    border: 1px solid #EFEFD0;
     margin: 1%;
     padding: 2%;
     display: inline-block;
@@ -114,10 +114,23 @@ p {
     height: 200px;
 }
 
+.pilot {
+    background-image: url("../img/pilot.png");
+    background-size: cover;
+    color: transparent;
+    opacity: 0.6;
+}
+
+.pilot:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
 footer {
     position: fixed;
+    display: inline-block;
     border-top: 3px solid #5B1901;
-    height: 50px;
+    height: 60px;
     width: 100%;
     bottom: 0;
     left: 0;
@@ -126,24 +139,50 @@ footer {
 }
 
 footer h4 {
-    display: inline;
+    float: left;
+    margin-left: 30%;
+    margin-right: -10%;
 }
-button {
+
+a {
     height: 40px;
     width: 40px;
-    margin-top: 5px;
+    margin-top: 7px;
     margin-left: 2%;
     margin-right: 2%;
+    background-color: transparent;
+    border: none;
+    color: transparent;
+}
+
+.email {
+    background-image: url("../img/email.png");
+    background-size: cover;
+}
+
+.phone {
+    background-image: url("../img/phone.png");
+    background-size: cover;
+}
+
+.github {
+    background-image: url("../img/github.png");
+    background-size: cover;
+}
+
+.twitter {
+    background-image: url("../img/twitter.png");
+    background-size: cover;
 }
 
 @media screen and (max-width: 950px) {
-    .preview {
+    .preview, .pilot {
         width: 40%;
     }
 }
 
 @media screen and (max-width: 720px) {
-    .preview {
+    .preview, .pilot {
         width: 80%;
     }
     footer h4 {
