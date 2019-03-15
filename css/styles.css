@@ -1,9 +1,9 @@
 *{box-sizing: border-box}
 
 body {
-    font-family: 'Courier', monospace;
+    font-family: 'Courier', monospace, "Times New Roman";
     color: #EFEFD0;
-    background-image: url('../img/stack5.jpg');
+    background-image: url("../img/stack5.jpg");
     background-position: center;
     background-size: cover;
     text-shadow: -1px 1px 1px #5B1901;
@@ -16,8 +16,7 @@ header {
 
 .title {
     width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     text-align: center;
 }
 
@@ -25,11 +24,10 @@ main {
     text-align: center;
     padding: 0 10% 5% 10%;
     letter-spacing: 1px;
-
 }
 
 main h2 {
-    margin-bottom: -20px;
+    margin-top: 20px;
     font-style: italic;
 }
 
@@ -80,9 +78,7 @@ main img {
 }
 
 p {
-    font-size: 1rem;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding: 100px 0;
 }
 
 section {
@@ -108,7 +104,6 @@ section h2 {
 .pilot {
     background-image: url("../img/pilot.png");
     background-size: cover;
-    color: transparent;
     text-shadow: 0 0 0;
     opacity: 0.6;
 }
