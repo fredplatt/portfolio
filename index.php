@@ -1,6 +1,10 @@
 <?php
 
+require('php/functions.php');
+
 $db = new PDO('mysql:host=127.0.0.1; dbname=portfolio', 'root');
+$getAboutText = getAboutText($db);
+$text = createParagraphs($getAboutText);
 
 ?>
 
@@ -14,23 +18,24 @@ $db = new PDO('mysql:host=127.0.0.1; dbname=portfolio', 'root');
 </head>
 <body>
     <header>
-        <h1 class="title">Full-Stack Freddy</h1>
+        <h1 class="title">Full-Stack Fred</h1>
         <h2 class="title">Web developer and nice enough bloke</h2>
     </header>
     <main>
         <h2>About Fred Platt</h2>
-        <div class="textLeft">
-            <p>I have been training at the highly-regarded Mayden Academy in Bath. Already a Certified Scrum Master and proficient in HTML and CSS, I am enjoying myself immensely and look forward to gaining yet more skills in PHP and javascript to name but a few! I love finding creative solutions to problems and there is an enormous pleasure in learning new things.</p>
-            <img src="img/fred2.jpg" alt="fredPlatt">
-        </div>
-        <div class="textRight">
-            <p class="childText2">Beyond coding, I conduct orchestras professionally and have a deep love of classical music. I direct Resonance Orchestra in Bristol and the University of Bath Orchestra. My favourite gig to date was putting a 100-strong orchestra under Concorde at the Aerospace Museum to perform Shostakovich. 500 people came, it was a really special night!</p>
-            <img src="img/conductor.jpg" alt="Conductor Fred">
-        </div>
-        <div class="textLeft">
-            <p>In my free time I enjoy riding my motorcycle, which I often do off-road. It is lovely to get out into the countryside and reconnect with nature, so occasionally I will take a tent or a hammock and have a weekend away from the city, out in the wilderness! Beyond that I enjoy cooking, climbing, playing with my niece and nephews and very occasionally doing absolutely nothing.</p>
-            <img src="img/bike2.jpg" alt="Biker Fred">
-        </div>
+        <?php echo $text; ?>
+<!--        <div class="textLeft">-->
+<!--            <p></p>-->
+<!--            <img src="img/fred2.jpg" alt="fredPlatt">-->
+<!--        </div>-->
+<!--        <div class="textRight">-->
+<!--            <p class="childText2">Beyond coding, I conduct orchestras professionally and have a deep love of classical music. I direct Resonance Orchestra in Bristol and the University of Bath Orchestra. My favourite gig to date was putting a 100-strong orchestra under Concorde at the Aerospace Museum to perform Shostakovich. 500 people came, it was a really special night!</p>-->
+<!--            <img src="img/conductor.jpg" alt="Conductor Fred">-->
+<!--        </div>-->
+<!--        <div class="textLeft">-->
+<!--            <p>In my free time I enjoy riding my motorcycle, which I often do off-road. It is lovely to get out into the countryside and reconnect with nature, so occasionally I will take a tent or a hammock and have a weekend away from the city, out in the wilderness! Beyond that I enjoy cooking, climbing, playing with my niece and nephews and very occasionally doing absolutely nothing.</p>-->
+<!--            <img src="img/bike2.jpg" alt="Biker Fred">-->
+<!--        </div>-->
     </main>
     <section>
         <h2>Portfolio</h2>
