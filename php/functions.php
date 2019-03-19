@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * This function retrieves the text to go in the About Me section. It also retrieves the ID in order to arrange paragraphs left/right.
  *
  * @param $db array - $db points to PDO into portfolio sql database.
@@ -15,7 +15,7 @@ function getAboutText(PDO $db):array {
     return $query->fetchAll();
 }
 
-/*
+/**
  * createParagraphs uses array of IDs and strings to display text on front end. Each paragraph is classed left or right according to odd/even numbers to do alternating justification.
  *
  * @param $getAboutText array - $ is the return of getAboutText()
@@ -34,3 +34,43 @@ function createParagraphs(array $getAboutText):string {
     }
     return $result;
 }
+
+
+/**
+ * @param array $retrieveText
+ * @return string
+ */
+
+function createTextForm(array $retrieveText):string {
+    $result = '';
+    foreach ($retrieveText as $displayText) {
+    $result .= '<form action="admin.php" method="post"><textarea class="paragraph" name="' . $displayText['id'] . '">' . $displayText['text'] . '</textarea><input class="button" type="submit" name="editText" value="Submit edit"><input class="button" type="submit" name="delete" value="Delete"></form>';
+    }
+    return $result;
+}
+
+/**
+ * Ignore everything below, I nearly went too far!
+ */
+
+//function editPara($db, $oldTextId, $newText) {
+//    $query = $db->prepare("UPDATE `about` SET `text` = :newText WHERE `id` = :oldTextId");
+//    $query->bindParam(':oldTextId', $oldTextId);
+//    $query->bindParam(':newText', $newText);
+//    $query->execute();
+//}
+//
+//function createTextForm(array $retrieveText):string {
+//$result = '';
+//foreach ($retrieveText as $displayText) {
+//    $result .= '<textarea form="form" name="' . $displayText['id'] . '"> ' . $displayText['text'] . '</textarea>';
+//}
+//return $result;
+//
+//
+//function editPara($db, $oldTextId, $newText) {
+//    $query = $db->prepare("UPDATE `about` SET `text` = :newText WHERE `id` = :oldTextId");
+//    $query->bindParam(':oldTextId', $oldTextId);
+//    $query->bindParam(':newText', $newText);
+//    $query->execute();
+//}
