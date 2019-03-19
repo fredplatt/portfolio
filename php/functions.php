@@ -37,8 +37,11 @@ function createParagraphs(array $getAboutText):string {
 
 
 /**
- * @param array $retrieveText
- * @return string
+ * createTextForm puts a textarea on the admin page for each paragraph being displayed on homepage. It fills it with the para text so you can edit it and then submit your edits or delete the para altogether.
+ *
+ * @param array $retrieveText is the return of getAboutText()
+ *
+ * @return string contains html to create form with embedded php to display text from database.
  */
 
 function createTextForm(array $retrieveText):string {
@@ -48,29 +51,3 @@ function createTextForm(array $retrieveText):string {
     }
     return $result;
 }
-
-/**
- * Ignore everything below, I nearly went too far!
- */
-
-//function editPara($db, $oldTextId, $newText) {
-//    $query = $db->prepare("UPDATE `about` SET `text` = :newText WHERE `id` = :oldTextId");
-//    $query->bindParam(':oldTextId', $oldTextId);
-//    $query->bindParam(':newText', $newText);
-//    $query->execute();
-//}
-//
-//function createTextForm(array $retrieveText):string {
-//$result = '';
-//foreach ($retrieveText as $displayText) {
-//    $result .= '<textarea form="form" name="' . $displayText['id'] . '"> ' . $displayText['text'] . '</textarea>';
-//}
-//return $result;
-//
-//
-//function editPara($db, $oldTextId, $newText) {
-//    $query = $db->prepare("UPDATE `about` SET `text` = :newText WHERE `id` = :oldTextId");
-//    $query->bindParam(':oldTextId', $oldTextId);
-//    $query->bindParam(':newText', $newText);
-//    $query->execute();
-//}

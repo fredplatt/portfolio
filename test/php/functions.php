@@ -28,4 +28,27 @@ class StackTest extends TestCase
         $this->expectException(TypeError::class);
         createParagraphs($input);
     }
+
+    public function testCreateTextFormSuccess()
+    {
+        $expected = '<form action="admin.php" method="post"><textarea class="paragraph" name="">hello</textarea><input class="button" type="submit" name="editText" value="Submit edit"><input class="button" type="submit" name="delete" value="Delete"></form>';
+        $input = [['text'=>'hello']];
+        $case = createTextForm($input);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testCreateTextFormFailure()
+    {
+        $expected = '<form action="admin.php" method="post"><textarea class="paragraph" name=""></textarea><input class="button" type="submit" name="editText" value="Submit edit"><input class="button" type="submit" name="delete" value="Delete"></form>';
+        $input = [['text'=>'']];
+        $case = createTextForm($input);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testCreateTextFormMalformed()
+    {
+        $input = 69;
+        $this->expectException(TypeError::class);
+        createTextForm($input);
+    }
 }
