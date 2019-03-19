@@ -9,7 +9,7 @@
  */
 
 
-function getAboutText($db) {
+function getAboutText(PDO $db):array {
     $query = $db->prepare("SELECT `id`, `text` FROM `about`;");
     $query->execute();
     return $query->fetchAll();
@@ -23,7 +23,7 @@ function getAboutText($db) {
  * @return string - contains html code for divs and paragraphs with classes to affect justification.
  */
 
-function createParagraphs(array $getAboutText) {
+function createParagraphs(array $getAboutText):string {
     $result = '';
     foreach ($getAboutText as $text) {
         if ($text['id'] % 2 == 0) {
