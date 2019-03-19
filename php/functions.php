@@ -25,11 +25,11 @@ function getAboutText(PDO $db):array {
 
 function createParagraphs(array $getAboutText):string {
     $result = '';
-    foreach ($getAboutText as $text) {
-        if ($text['id'] % 2 == 0) {
-        $result .= '<div class="textRight"><p>'. $text['text'] .'</p></div>';
+    foreach ($getAboutText as $aboutMeText) {
+        if ($aboutMeText['id'] % 2 == 0) {
+        $result .= '<div class="textRight"><p>'. $aboutMeText['text'] .'</p></div>';
         } else {
-            $result .= '<div class="textLeft"><p>'. $text['text'] .'</p></div>';
+            $result .= '<div class="textLeft"><p>'. $aboutMeText['text'] .'</p></div>';
         }
     }
     return $result;

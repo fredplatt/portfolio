@@ -1,10 +1,11 @@
 <?php
 
+require('php/dbConnection.php');
 require('php/functions.php');
 
-$db = new PDO('mysql:host=127.0.0.1; dbname=portfolio', 'root');
+$db = getdbConnection();
 $getAboutText = getAboutText($db);
-$text = createParagraphs($getAboutText);
+$aboutMeText = createParagraphs($getAboutText);
 
 ?>
 
@@ -23,7 +24,9 @@ $text = createParagraphs($getAboutText);
     </header>
     <main>
         <h2>About Fred Platt</h2>
-        <?php echo $text; ?>
+
+        <?php echo $aboutMeText; ?>
+
     </main>
     <section>
         <h2>Portfolio</h2>
