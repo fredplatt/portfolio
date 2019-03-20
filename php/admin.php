@@ -5,10 +5,18 @@ require 'functions.php';
 
 $db = getdbConnection();
 
-$editPara = $_POST['editPara'];
-$newContent = $_POST['newContent'];
-$oldTextId = $_POST['oldTextId'];
-$newText = $_POST['editText'];
+if (isset($_POST['editText'])) {
+    $oldTextId = $_POST['editId'];
+    $newText = $_POST['editedText'];
+    editPara($db, $oldTextId, $newText);
+}
+
+
+if (isset($_POST['addText'])) {
+    $addedText = $_POST['newContent'];
+    addText($db, $addedText);
+}
+
 $retrieveText = getAboutText($db);
 $textForm = createTextForm($retrieveText);
 
@@ -23,14 +31,10 @@ $textForm = createTextForm($retrieveText);
 <body>
 <h1>HI FRED</h1>
 <h3>Edit 'About Me' Section</h3>
-<form id="form" action="admin.php" method="post">
-
     <?php echo $textForm ?>
-
-</form>
 <form action="admin.php" method="post">
-    <input class="paragraph" type="text" name="newContent" placeholder="New text to be added, php to come">
-    <input class="button" type="submit">
+    <input class="paragraph" type="text" name="newContent" placeholder="Type new content in here">
+    <input class="button" type="submit" name="addText">
 </form>
 </body>
 </html>
