@@ -1,4 +1,17 @@
 <?php
+
+require 'dbConnection.php';
+require 'functions.php';
+
+$db = getdbConnection();
+
+$editPara = $_POST['editPara'];
+$newContent = $_POST['newContent'];
+$oldTextId = $_POST['oldTextId'];
+$newText = $_POST['editText'];
+$retrieveText = getAboutText($db);
+$textForm = createTextForm($retrieveText);
+
 ?>
 
 <html lang="en">
@@ -10,10 +23,10 @@
 <body>
 <h1>HI FRED</h1>
 <h3>Edit 'About Me' Section</h3>
-<form action="admin.php" method="post">
-    <input class="paragraph" type="text" placeholder="text to edit, there will be one of these inputs per paragraph on main page. Php to come">
-    <input class="button" type="submit" name="edit" value="Edit">
-    <input class="button" type="submit" name="delete" value="Delete">
+<form id="form" action="admin.php" method="post">
+
+    <?php echo $textForm ?>
+
 </form>
 <form action="admin.php" method="post">
     <input class="paragraph" type="text" name="newContent" placeholder="New text to be added, php to come">
