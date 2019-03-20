@@ -68,3 +68,20 @@ function editPara($db, $oldTextId, $newText) {
     $query->bindParam(':newText', $newText);
     $query->execute();
 }
+
+/**
+ * addText uses bottom textarea to submit new content to the database which is then displayed on front end.
+ *
+ * @param PDO $db
+ *
+ * @param string $addedText gets new text from form
+ *
+ * @return mixed
+ */
+
+function addText($db, $addedText) {
+    $query = $db->prepare("INSERT INTO `about` (`text`) VALUES (:addText)");
+    $query->bindParam(':addText', $addedText);
+    $query->execute();
+    return $db->lastInsertId();
+}

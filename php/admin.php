@@ -11,7 +11,12 @@ if (isset($_POST['editText'])) {
     editPara($db, $oldTextId, $newText);
 }
 
-//$newContent = $_POST['newContent'];
+
+if (isset($_POST['addText'])) {
+    $addedText = $_POST['newContent'];
+    addText($db, $addedText);
+}
+
 $retrieveText = getAboutText($db);
 $textForm = createTextForm($retrieveText);
 
@@ -28,8 +33,8 @@ $textForm = createTextForm($retrieveText);
 <h3>Edit 'About Me' Section</h3>
     <?php echo $textForm ?>
 <form action="admin.php" method="post">
-    <input class="paragraph" type="text" name="newContent" placeholder="New text to be added, php to come">
-    <input class="button" type="submit">
+    <input class="paragraph" type="text" name="newContent" placeholder="Type new content in here">
+    <input class="button" type="submit" name="addText">
 </form>
 </body>
 </html>
