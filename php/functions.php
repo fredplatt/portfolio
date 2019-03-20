@@ -7,8 +7,6 @@
  *
  * @return array the id and text fields from the 'about' table of database
  */
-
-
 function getAboutText(PDO $db):array {
     $query = $db->prepare("SELECT `id`, `text` FROM `about`;");
     $query->execute();
@@ -22,7 +20,6 @@ function getAboutText(PDO $db):array {
  *
  * @return string - contains html code for divs and paragraphs with classes to affect justification.
  */
-
 function createParagraphs(array $getAboutText):string {
     $result = '';
     foreach ($getAboutText as $aboutMeText) {
@@ -35,7 +32,6 @@ function createParagraphs(array $getAboutText):string {
     return $result;
 }
 
-
 /**
  * createTextForm puts a textarea on the admin page for each paragraph being displayed on homepage. It fills it with the para text so you can edit it and then submit your edits or delete the para altogether.
  *
@@ -43,7 +39,6 @@ function createParagraphs(array $getAboutText):string {
  *
  * @return string contains html to create form with embedded php to display text from database.
  */
-
 function createTextForm(array $retrieveText):string {
     $result = '';
     foreach ($retrieveText as $displayText) {
@@ -55,31 +50,31 @@ function createTextForm(array $retrieveText):string {
 /**
  * editPara uses textarea containing current text to submit edits to the text displayed.
  *
- * @param PDO $db
+ * @param PDO $db connects to database
  *
  * @param string $oldTextId gets id number from hidden input
  *
  * @param string $newText is the submit of what the textarea contains
+ *
+ * @return mixed executes the query to update the text field on database.
  */
-
-function editPara($db, $oldTextId, $newText) {
+function editPara(PDO $db, string $oldTextId, string $newText) {
     $query = $db->prepare("UPDATE `about` SET `text` = :newText WHERE `id` = :editId");
     $query->bindParam(':editId', $oldTextId);
     $query->bindParam(':newText', $newText);
-    $query->execute();
+    return $query->execute();
 }
 
 /**
  * addText uses bottom textarea to submit new content to the database which is then displayed on front end.
  *
- * @param PDO $db
+ * @param PDO $db connects to database
  *
  * @param string $addedText gets new text from form
  *
- * @return mixed
+ * @return mixed returns the ID of the last insertion
  */
-
-function addText($db, $addedText) {
+function addText(PDO $db, string $addedText) {
     $query = $db->prepare("INSERT INTO `about` (`text`) VALUES (:addText)");
     $query->bindParam(':addText', $addedText);
     $query->execute();
