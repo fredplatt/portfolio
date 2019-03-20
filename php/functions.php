@@ -47,7 +47,24 @@ function createParagraphs(array $getAboutText):string {
 function createTextForm(array $retrieveText):string {
     $result = '';
     foreach ($retrieveText as $displayText) {
-    $result .= '<form action="admin.php" method="post"><textarea class="paragraph" name="' . $displayText['id'] . '">' . $displayText['text'] . '</textarea><input class="button" type="submit" name="editText" value="Submit edit"><input class="button" type="submit" name="delete" value="Delete"></form>';
+    $result .= '<form id="editForm" action="admin.php" method="post"><textarea class="paragraph" name="editedText">' . $displayText['text'] . '</textarea><input type="hidden" name="editId" value="' . $displayText['id'] . '"/><input class="button" type="submit" name="editText" value="Submit edit"><input class="button" type="submit" name="delete" value="Delete"></form>';
     }
     return $result;
+}
+
+/**
+ * editPara uses textarea containing current text to submit edits to the text displayed.
+ *
+ * @param PDO $db
+ *
+ * @param string $oldTextId gets id number from hidden input
+ *
+ * @param string $newText is the submit of what the textarea contains
+ */
+
+function editPara($db, $oldTextId, $newText) {
+    $query = $db->prepare("UPDATE `about` SET `text` = :newText WHERE `id` = :editId");
+    $query->bindParam(':editId', $oldTextId);
+    $query->bindParam(':newText', $newText);
+    $query->execute();
 }
