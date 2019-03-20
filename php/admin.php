@@ -11,10 +11,14 @@ if (isset($_POST['editText'])) {
     editPara($db, $oldTextId, $newText);
 }
 
-
 if (isset($_POST['addText'])) {
     $addedText = $_POST['newContent'];
     addText($db, $addedText);
+}
+
+if (isset($_POST['delText'])) {
+    $oldTextId = $_POST['editId'];
+    delText($db, $oldTextId);
 }
 
 $retrieveText = getAboutText($db);
