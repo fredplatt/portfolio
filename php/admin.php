@@ -1,6 +1,6 @@
 <?php
 
-require 'dbConnection.php';
+require_once 'dbConnection.php';
 require 'functions.php';
 
 $db = getdbConnection();
