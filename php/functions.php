@@ -111,7 +111,7 @@ function checkIfEmpty (string $string) : bool {
 }
 
 /**
- *trims white space if present
+ * trims white space if present
  *
  * @param string $string to be trimmed
  *
@@ -119,4 +119,33 @@ function checkIfEmpty (string $string) : bool {
  */
 function trimWhiteSpace (string $string) : string {
     return trim($string);
+}
+
+/**
+ * getCredentials retrieves login details from database to then be compared by checkCredentials
+ *
+ * @param PDO $db connects to database
+ *
+ * @return array of usernames and passwords
+ */
+function getCredentials(PDO $db) : array {
+    $query = $db->prepare("SELECT `username`, `password` FROM `credentials`");
+    $query->execute();
+    return $query->fetch();
+}
+
+/**
+ * checkCredentials compares postdata with getCredentials to verify login
+ * @param string $username username from form
+ * @param string $password password from form
+ * @param array $credentials username and hashed password from database
+ *
+ * @return bool true or false on successful login
+ */
+function checkCredentials(string $username, string $password, array $credentials) : bool {
+    if ($username == $credentials['username'] && password_verify($password, $credentials['password'])) {
+       return true;
+    } else {
+        return false;
+    }
 }

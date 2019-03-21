@@ -51,4 +51,31 @@ class StackTest extends TestCase
         $this->expectException(TypeError::class);
         createTextForm($input);
     }
+
+    public function testCheckCredentialsSuccess()
+    {
+        $expected = false;
+        $input = [['text'=>'true']];
+        $input2 = [['text'=>'true']];
+        $input3 = [['text'=>'true']];
+        $case = checkCredentials($input, $input2, $input3);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testCheckCredentialsFailure()
+    {
+        $expected = false;
+        $input = [['text'=>'falseaaaagibaerirgbsiergbsilerbgilersbgilersbgiersbgklhresbgilersbilbgislerubgiuersgilesbgiluersguresgilubersgiuesrgiubersibguserbgilesrbguesrgiuebsuglhseribguersuibgersugbliesrbgilersgblisbegr']];
+        $input2 = [['text'=>'falseaaaagibaerirgbsiergbsilerbgilersbgilersbgiersbgklhresbgilersbilbgislerubgiuersgilesbgiluersguresgilubersgiuesrgiubersibguserbgilesrbguesrgiuebsuglhseribguersuibgersugbliesrbgilersgblisbegr']];
+        $input3 = [['text'=>'false']];
+        $case = checkCredentials($input, $input2, $input3);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testCheckCredentialsMalformed()
+    {
+        $input = 69;
+        $this->expectException(TypeError::class);
+        createParagraphs($input);
+    }
 }
