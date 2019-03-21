@@ -1,4 +1,37 @@
 <?php
+
+require_once 'dbConnection.php';
+require 'functions.php';
+
+$db = getdbConnection();
+
+if (isset($_POST['editText'])) {
+    $oldTextId = $_POST['editId'];
+    $newText = $_POST['editedText'];
+    $trimmedText = trimWhiteSpace($newText);
+    $checkedText = checkIfEmpty($trimmedText);
+    if ($checkedText) {
+        editPara($db, $oldTextId, $trimmedText);
+    }
+}
+
+if (isset($_POST['addText'])) {
+    $addedText = $_POST['newContent'];
+    $trimmedText = trimWhiteSpace($addedText);
+    $checkedText = checkIfEmpty($trimmedText);
+    if ($checkedText) {
+        addText($db, $trimmedText);
+    }
+}
+
+if (isset($_POST['delText'])) {
+    $oldTextId = $_POST['editId'];
+    delText($db, $oldTextId);
+}
+
+$retrieveText = getAboutText($db);
+$textForm = createTextForm($retrieveText);
+
 ?>
 
 <html lang="en">
@@ -10,14 +43,10 @@
 <body>
 <h1>HI FRED</h1>
 <h3>Edit 'About Me' Section</h3>
+    <?php echo $textForm ?>
 <form action="admin.php" method="post">
-    <input class="paragraph" type="text" placeholder="text to edit, there will be one of these inputs per paragraph on main page. Php to come">
-    <input class="button" type="submit" name="edit" value="Edit">
-    <input class="button" type="submit" name="delete" value="Delete">
-</form>
-<form action="admin.php" method="post">
-    <input class="paragraph" type="text" name="newContent" placeholder="New text to be added, php to come">
-    <input class="button" type="submit">
+    <input class="paragraph" type="text" name="newContent" placeholder="Type new content in here">
+    <input class="button" type="submit" name="addText">
 </form>
 </body>
 </html>
