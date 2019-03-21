@@ -5,7 +5,7 @@ session_start();
 require_once 'dbConnection.php';
 require 'functions.php';
 
-$db = getdbConnection();
+$db = getDbConnection();
 
 if (!$_SESSION['loggedIn']) {
     header('Location: login.php');
