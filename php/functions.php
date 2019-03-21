@@ -24,7 +24,7 @@ function createParagraphs(array $getAboutText):string {
     $result = '';
     foreach ($getAboutText as $aboutMeText) {
         if ($aboutMeText['id'] % 2 == 0){
-            $result .= '<div class="textRight"><p>'. $aboutMeText['text'] .'</p></div>';
+        $result .= '<div class="textRight"><p>'. $aboutMeText['text'] .'</p></div>';
         } else {
             $result .= '<div class="textLeft"><p>'. $aboutMeText['text'] .'</p></div>';
         }
@@ -42,7 +42,7 @@ function createParagraphs(array $getAboutText):string {
 function createTextForm(array $retrieveText):string {
     $result = '';
     foreach ($retrieveText as $displayText) {
-        $result .= '<form id="editForm" action="admin.php" method="post"><textarea class="paragraph" name="editedText">' . $displayText['text'] . '</textarea><input type="hidden" name="editId" value="' . $displayText['id'] . '"/><input class="button" type="submit" name="editText" value="Submit edit"><input class="button" type="submit" name="delText" value="Delete"></form>';
+    $result .= '<form id="editForm" action="admin.php" method="post"><textarea class="paragraph" name="editedText">' . $displayText['text'] . '</textarea><input type="hidden" name="editId" value="' . $displayText['id'] . '"/><input class="button" type="submit" name="editText" value="Submit edit"><input class="button" type="submit" name="delText" value="Delete"></form>';
     }
     return $result;
 }
