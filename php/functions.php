@@ -128,7 +128,7 @@ function trimWhiteSpace (string $string) : string {
  *
  * @return array of usernames and passwords
  */
-function getCredentials(PDO $db) {
+function getCredentials(PDO $db) : array {
     $query = $db->prepare("SELECT `username`, `password` FROM `credentials`");
     $query->execute();
     return $query->fetch();
@@ -142,7 +142,7 @@ function getCredentials(PDO $db) {
  *
  * @return bool true or false on successful login
  */
-function checkCredentials($username, $password, $credentials) {
+function checkCredentials(string $username, string $password, array $credentials) : bool {
     if ($username == $credentials['username'] && password_verify($password, $credentials['password'])) {
        return true;
     } else {

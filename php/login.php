@@ -5,17 +5,13 @@ session_start();
 require_once 'dbConnection.php';
 require 'functions.php';
 
-$db = getdbConnection();
+$db = getDbConnection();
 
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
     $credentials = getCredentials($db);
-    var_dump($username);
-    var_dump($password);
-    var_dump($credentials);
     $checkedCredentials = checkCredentials($username, $password, $credentials);
-    var_dump($checkedCredentials);
     if ($checkedCredentials == true) {
         $_SESSION['loggedIn']=true;
         header('Location: admin.php');
