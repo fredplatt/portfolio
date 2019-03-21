@@ -1,6 +1,19 @@
 <?php
+
+session_start();
+
 require 'dbConnection.php';
 require 'functions.php';
+
+$userName = 'fred';
+$password = 'password';
+
+if ($_POST['userName'] == $userName && $_POST['password'] == $password) {
+    $_SESSION['loggedIn']=true;
+    header('Location: admin.php');
+} else if ($_SESSION['loggedIn']) {
+    header('Location: admin.php');
+}
 ?>
 
 <html lang="en">

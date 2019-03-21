@@ -122,3 +122,9 @@ function checkIfEmpty (string $string) : bool {
 function trimWhiteSpace (string $string) : string {
     return trim($string);
 }
+
+function getCredentials(PDO $db):array {
+    $query = $db->prepare("SELECT `username`, `password` FROM `about` WHERE `deleted` = 0;");
+    $query->execute();
+    return $query->fetchAll();
+}

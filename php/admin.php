@@ -1,5 +1,13 @@
 <?php
 
+session_start();
+
+if ($_SESSION['loggedIn']) {
+    header('Location: admin.php');
+}
+else { header('Location: ../index.php');
+}
+
 require 'dbConnection.php';
 require 'functions.php';
 
