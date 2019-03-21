@@ -8,7 +8,7 @@ if ($_SESSION['loggedIn']) {
 else { header('Location: ../index.php');
 }
 
-require 'dbConnection.php';
+require_once 'dbConnection.php';
 require 'functions.php';
 
 $db = getdbConnection();

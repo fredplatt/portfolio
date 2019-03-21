@@ -31,15 +31,15 @@ class StackTest extends TestCase
 
     public function testCreateTextFormSuccess()
     {
-        $expected = '<form action="admin.php" method="post"><textarea class="paragraph" name="">hello</textarea><input class="button" type="submit" name="editText" value="Submit edit"><input class="button" type="submit" name="delete" value="Delete"></form>';
-        $input = [['text'=>'hello']];
+        $expected = '<form id="editForm" action="admin.php" method="post"><textarea class="paragraph" name="editedText">hello</textarea><input type="hidden" name="editId" value="1"/><input class="button" type="submit" name="editText" value="Submit edit"><input class="button" type="submit" name="delText" value="Delete"></form>';
+        $input = [['id'=>'1', 'text'=>"hello"]];
         $case = createTextForm($input);
         $this->assertEquals($expected, $case);
     }
 
     public function testCreateTextFormFailure()
     {
-        $expected = '<form action="admin.php" method="post"><textarea class="paragraph" name=""></textarea><input class="button" type="submit" name="editText" value="Submit edit"><input class="button" type="submit" name="delete" value="Delete"></form>';
+        $expected = '<form id="editForm" action="admin.php" method="post"><textarea class="paragraph" name="editedText"></textarea><input type="hidden" name="editId" value=""/><input class="button" type="submit" name="editText" value="Submit edit"><input class="button" type="submit" name="delText" value="Delete"></form>';
         $input = [['text'=>'']];
         $case = createTextForm($input);
         $this->assertEquals($expected, $case);

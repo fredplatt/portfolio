@@ -7,7 +7,7 @@
  *
  * @return array the id and text fields from the 'about' table of database
  */
-function getAboutText(PDO $db):array {
+function getAboutText(PDO $db) : array {
     $query = $db->prepare("SELECT `id`, `text` FROM `about` WHERE `deleted` = 0;");
     $query->execute();
     return $query->fetchAll();
@@ -20,7 +20,7 @@ function getAboutText(PDO $db):array {
  *
  * @return string - contains html code for divs and paragraphs with classes to affect justification.
  */
-function createParagraphs(array $getAboutText):string {
+function createParagraphs(array $getAboutText) : string {
     $result = '';
     foreach ($getAboutText as $aboutMeText) {
         if ($aboutMeText['id'] % 2 == 0){
@@ -39,7 +39,7 @@ function createParagraphs(array $getAboutText):string {
  *
  * @return string contains html to create form with embedded php to display text from database.
  */
-function createTextForm(array $retrieveText):string {
+function createTextForm(array $retrieveText) : string {
     $result = '';
     foreach ($retrieveText as $displayText) {
     $result .= '<form id="editForm" action="admin.php" method="post"><textarea class="paragraph" name="editedText">' . $displayText['text'] . '</textarea><input type="hidden" name="editId" value="' . $displayText['id'] . '"/><input class="button" type="submit" name="editText" value="Submit edit"><input class="button" type="submit" name="delText" value="Delete"></form>';
@@ -56,9 +56,9 @@ function createTextForm(array $retrieveText):string {
  *
  * @param string $newText is the submit of what the textarea contains
  *
- * @return mixed executes the query to update the text field on database.
+ * @return string executes the query to update the text field on database.
  */
-function editPara(PDO $db, string $oldTextId, string $newText) {
+function editPara(PDO $db, string $oldTextId, string $newText) : string {
     $query = $db->prepare("UPDATE `about` SET `text` = :newText WHERE `id` = :editId");
     $query->bindParam(':editId', $oldTextId);
     $query->bindParam(':newText', $newText);
@@ -69,12 +69,11 @@ function editPara(PDO $db, string $oldTextId, string $newText) {
  * addText uses bottom textarea to submit new content to the database which is then displayed on front end.
  *
  * @param PDO $db connects to database
- *
  * @param string $addedText gets new text from form
  *
- * @return mixed returns the ID of the last insertion
+ * @return int returns the ID of the last insertion
  */
-function addText(PDO $db, string $addedText) {
+function addText(PDO $db, string $addedText) : int {
     $query = $db->prepare("INSERT INTO `about` (`text`) VALUES (:addText)");
     $query->bindParam(':addText', $addedText);
     $query->execute();
@@ -85,13 +84,12 @@ function addText(PDO $db, string $addedText) {
  * delText puts a deleted flag on that line in the db. Other functions then hide it from admin and front end.
  *
  * @param PDO $db connects to database
- *
  * @param string $oldTextId gets id number from hidden input
  *
  * @return bool executes the query to update the deleted field on database.
  */
-function delText(PDO $db, string $oldTextId) {
-    $query = $db->prepare("UPDATE `about` SET `deleted` = 1, `id` = `id` + (SELECT MAX(`id`)) WHERE `id` = :editId");
+function delText(PDO $db, string $oldTextId) : bool {
+    $query = $db->prepare("UPDATE `about` SET `deleted` = 1 WHERE `id` = :editId;");
     $query->bindParam(':editId', $oldTextId);
     return $query->execute();
 }

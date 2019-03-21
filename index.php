@@ -1,7 +1,7 @@
 <?php
 
-require('php/dbConnection.php');
-require('php/functions.php');
+require_once 'php/dbConnection.php';
+require 'php/functions.php';
 
 $db = getdbConnection();
 $getAboutText = getAboutText($db);
