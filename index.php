@@ -20,9 +20,10 @@ $aboutMeText = createParagraphs($getAboutText);
 <body>
     <header>
         <h1 class="title">Full-Stack Fred</h1>
-        <h2 class="title">Web developer and nice enough bloke</h2>
+        <h2 class="title">Web developer</h2>
     </header>
     <main>
+        <img src="img/fred2.jpg" alt="Fred">
         <h2>About Fred Platt</h2>
 
         <?php echo $aboutMeText; ?>
@@ -43,6 +44,7 @@ $aboutMeText = createParagraphs($getAboutText);
         <a href="tel:+447757182517" class="contact"><img src="img/phone.png" alt="Phone"></a>
         <a href="https://github.com/fredplatt" target="_blank"><img src="img/github.png" alt="GitHub"></a>
         <a href="https://twitter.com/frederickplatt" target="_blank"><img src="img/twitter.png" alt="Twitter"></a>
+        <a href="php/login.php" class="contact"><img src="img/settings.png" alt="Admin"></a>
     </footer>
 </body>
 </html>
