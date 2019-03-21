@@ -8,7 +8,7 @@
  * @return array the id and text fields from the 'about' table of database
  */
 function getAboutText(PDO $db):array {
-    $query = $db->prepare("SELECT `id`, `text`, `deleted` FROM `about`;");
+    $query = $db->prepare("SELECT `id`, `text` FROM `about` WHERE `deleted` = 0;");
     $query->execute();
     return $query->fetchAll();
 }
@@ -23,9 +23,9 @@ function getAboutText(PDO $db):array {
 function createParagraphs(array $getAboutText):string {
     $result = '';
     foreach ($getAboutText as $aboutMeText) {
-        if ($aboutMeText['id'] % 2 == 0 && $aboutMeText['deleted'] == 0){
-        $result .= '<div class="textRight"><p>'. $aboutMeText['text'] .'</p></div>';
-        } elseif ($aboutMeText['deleted'] == 0){
+        if ($aboutMeText['id'] % 2 == 0){
+            $result .= '<div class="textRight"><p>'. $aboutMeText['text'] .'</p></div>';
+        } else {
             $result .= '<div class="textLeft"><p>'. $aboutMeText['text'] .'</p></div>';
         }
     }
@@ -42,8 +42,7 @@ function createParagraphs(array $getAboutText):string {
 function createTextForm(array $retrieveText):string {
     $result = '';
     foreach ($retrieveText as $displayText) {
-        if ($displayText['deleted'] == 0)
-    $result .= '<form id="editForm" action="admin.php" method="post"><textarea class="paragraph" name="editedText">' . $displayText['text'] . '</textarea><input type="hidden" name="editId" value="' . $displayText['id'] . '"/><input class="button" type="submit" name="editText" value="Submit edit"><input class="button" type="submit" name="delText" value="Delete"></form>';
+        $result .= '<form id="editForm" action="admin.php" method="post"><textarea class="paragraph" name="editedText">' . $displayText['text'] . '</textarea><input type="hidden" name="editId" value="' . $displayText['id'] . '"/><input class="button" type="submit" name="editText" value="Submit edit"><input class="button" type="submit" name="delText" value="Delete"></form>';
     }
     return $result;
 }
@@ -84,8 +83,11 @@ function addText(PDO $db, string $addedText) {
 
 /**
  * delText puts a deleted flag on that line in the db. Other functions then hide it from admin and front end.
+ *
  * @param PDO $db connects to database
+ *
  * @param string $oldTextId gets id number from hidden input
+ *
  * @return bool executes the query to update the deleted field on database.
  */
 function delText(PDO $db, string $oldTextId) {
