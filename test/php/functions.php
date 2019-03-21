@@ -51,4 +51,27 @@ class StackTest extends TestCase
         $this->expectException(TypeError::class);
         createTextForm($input);
     }
+
+    public function testCheckCredentialsSuccess()
+    {
+        $expected = true;
+        $input = [['text'=>'hello']];
+        $case = createParagraphs($input);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testCheckCredentialsFailure()
+    {
+        $expected = false;
+        $input = [['text'=>'']];
+        $case = createParagraphs($input);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testCheckCredentialsMalformed()
+    {
+        $input = 69;
+        $this->expectException(TypeError::class);
+        createParagraphs($input);
+    }
 }
