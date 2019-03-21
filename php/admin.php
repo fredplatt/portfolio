@@ -8,12 +8,20 @@ $db = getdbConnection();
 if (isset($_POST['editText'])) {
     $oldTextId = $_POST['editId'];
     $newText = $_POST['editedText'];
-    editPara($db, $oldTextId, $newText);
+    $trimmedText = trimWhiteSpace($newText);
+    $checkedText = checkIfEmpty($trimmedText);
+    if ($checkedText) {
+        editPara($db, $oldTextId, $trimmedText);
+    }
 }
 
 if (isset($_POST['addText'])) {
     $addedText = $_POST['newContent'];
-    addText($db, $addedText);
+    $trimmedText = trimWhiteSpace($addedText);
+    $checkedText = checkIfEmpty($trimmedText);
+    if ($checkedText) {
+        addText($db, $trimmedText);
+    }
 }
 
 if (isset($_POST['delText'])) {
