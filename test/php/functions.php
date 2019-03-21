@@ -54,17 +54,21 @@ class StackTest extends TestCase
 
     public function testCheckCredentialsSuccess()
     {
-        $expected = true;
-        $input = [['text'=>'hello']];
-        $case = createParagraphs($input);
+        $expected = false;
+        $input = [['text'=>'true']];
+        $input2 = [['text'=>'true']];
+        $input3 = [['text'=>'true']];
+        $case = checkCredentials($input, $input2, $input3);
         $this->assertEquals($expected, $case);
     }
 
     public function testCheckCredentialsFailure()
     {
         $expected = false;
-        $input = [['text'=>'']];
-        $case = createParagraphs($input);
+        $input = [['text'=>'falseaaaagibaerirgbsiergbsilerbgilersbgilersbgiersbgklhresbgilersbilbgislerubgiuersgilesbgiluersguresgilubersgiuesrgiubersibguserbgilesrbguesrgiuebsuglhseribguersuibgersugbliesrbgilersgblisbegr']];
+        $input2 = [['text'=>'falseaaaagibaerirgbsiergbsilerbgilersbgilersbgiersbgklhresbgilersbilbgislerubgiuersgilesbgiluersguresgilubersgiuesrgiubersibguserbgilesrbguesrgiuebsuglhseribguersuibgersugbliesrbgilersgblisbegr']];
+        $input3 = [['text'=>'false']];
+        $case = checkCredentials($input, $input2, $input3);
         $this->assertEquals($expected, $case);
     }
 
