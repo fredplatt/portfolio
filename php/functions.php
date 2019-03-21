@@ -121,8 +121,16 @@ function trimWhiteSpace (string $string) : string {
     return trim($string);
 }
 
-function getCredentials(PDO $db):array {
-    $query = $db->prepare("SELECT `username`, `password` FROM `about` WHERE `deleted` = 0;");
+function getCredentials(PDO $db) {
+    $query = $db->prepare("SELECT `username`, `password` FROM `credentials`");
     $query->execute();
-    return $query->fetchAll();
+    return $query->fetch();
+}
+
+function checkCredentials($username, $password, $credentials) {
+    if ($username == $credentials['username'] && $password == $credentials['password']) {
+       return true;
+    } else {
+        return false;
+    }
 }

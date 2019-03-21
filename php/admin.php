@@ -2,16 +2,14 @@
 
 session_start();
 
-if ($_SESSION['loggedIn']) {
-    header('Location: admin.php');
-}
-else { header('Location: ../index.php');
-}
-
 require_once 'dbConnection.php';
 require 'functions.php';
 
 $db = getdbConnection();
+
+if (!$_SESSION['loggedIn']) {
+    header('Location: login.php');
+}
 
 if (isset($_POST['editText'])) {
     $oldTextId = $_POST['editId'];
@@ -56,5 +54,6 @@ $textForm = createTextForm($retrieveText);
     <input class="paragraph" type="text" name="newContent" placeholder="Type new content in here">
     <input class="button" type="submit" name="addText">
 </form>
+<a href="logout.php">Log Out</a>
 </body>
 </html>

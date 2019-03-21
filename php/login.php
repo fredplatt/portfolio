@@ -2,17 +2,24 @@
 
 session_start();
 
-require 'dbConnection.php';
+require_once 'dbConnection.php';
 require 'functions.php';
 
-$userName = 'fred';
-$password = 'password';
+$db = getdbConnection();
 
-if ($_POST['userName'] == $userName && $_POST['password'] == $password) {
-    $_SESSION['loggedIn']=true;
-    header('Location: admin.php');
-} else if ($_SESSION['loggedIn']) {
-    header('Location: admin.php');
+if (isset($_POST['submit'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $credentials = getCredentials($db);
+    var_dump($username);
+    var_dump($password);
+    var_dump($credentials);
+    $checkedCredentials = checkCredentials($username, $password, $credentials);
+    var_dump($checkedCredentials);
+    if ($checkedCredentials == true) {
+        $_SESSION['loggedIn']=true;
+        header('Location: admin.php');
+    }
 }
 ?>
 
@@ -20,7 +27,7 @@ if ($_POST['userName'] == $userName && $_POST['password'] == $password) {
 <head>
     <link rel='stylesheet' type='text/css' href='../css/normalize.css'>
     <link rel='stylesheet' type='text/css' href='../css/admin.css'>
-    <title>Admin</title>
+    <title>Login</title>
 </head>
 <body>
 <h1>Please Log In</h1>
